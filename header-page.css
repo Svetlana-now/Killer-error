@@ -1,0 +1,61 @@
+.header-page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 5;
+  background: rgba(11, 20, 25, 0.9);
+  padding: 9px 0;
+  overflow: hidden;
+}
+
+.header-page__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-page__end {
+  display: flex;
+  align-items: center;
+}
+
+.header-page__nav {
+  margin-right: 15px;
+}
+
+.header-page__ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.header-page__link {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  padding: 1% 760px 1% 34%;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 24px;
+  position: relative;
+}
+
+.header-page__link:hover::before {
+  opacity: 1;
+}
+
+.header-page__text {
+  position: relative;
+  transition: all .2s;
+}
+
+.header-page__link:hover .header-page__text {
+  color: #F0B00C;
+}
+
+.header-page__hamburger {
+  display: none;
+  margin-right: -15px;
+}

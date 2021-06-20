@@ -1,0 +1,293 @@
+/* Убираем поля и отступы документа */
+body {
+  margin: 0;
+  padding: 0;
+  /* Отключаем выделение элементов мышью */
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Рабочая поверхность */
+#table {
+ width: 52%;
+  height: 650px;
+  padding: 10px;
+  float: left;
+
+}
+
+/* Контейнер для комплектующих */
+#content {
+     position: relative;
+    border: 1px solid;
+    border-bottom: none;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+.parts{
+   width: 105%;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden; 
+}
+
+
+/* Корпус компьютера */
+#tower {
+  margin: auto;
+  position: absolute;
+  background-repeat: no-repeat;
+    margin: 50px auto 0 auto;
+   top: 6%;
+   left: 2%;
+   border: none;
+}
+
+/* Корпус компьютера */
+#cpu {
+  position: absolute;
+  top: 125px;
+  left: 163px;
+  /* Уровень слоя */
+  z-index: 2;
+}
+
+#motherboard {
+  position: absolute;
+  top: 85px;
+  left: 10px;
+  /* Уровень слоя */
+  z-index: 1;
+}
+
+#cooler {
+  position: absolute;
+  top: 117px;
+  left: 150px;
+  /* Уровень слоя */
+  z-index: 3;
+}
+
+#memory {
+  position: absolute;
+  top: 109px;
+  left: 367px;
+  /* Уровень слоя */
+  z-index: 2;
+}
+
+#video-card{
+  position: absolute;
+  top: 455px;
+  left: 60px;
+  /* Уровень слоя */
+  z-index: 2;
+}
+
+#power-supply {
+  position: absolute;
+  top: -65px;
+  left: 10px;
+  /* Уровень слоя */
+  z-index: 1;
+}
+
+#hdd {
+  position: absolute;
+  top: 350px;
+  left: 615px;
+  /* Уровень слоя */
+  z-index: 1;
+}
+
+/* Слоты и комплектующие выстравиваем в ряд */
+#tower div,
+#content div {
+  display: inline-block;
+  cursor:  grab;
+  cursor: -webkit-grab;
+}
+
+/* Скрываем изображение в слотах */
+#tower div img {
+  visibility: hidden;
+}
+
+/* Рамка слота при наведении элемента */
+#tower div.hovered {
+  border: 2px dashed yellow;
+}
+
+/* Рамка слота */
+#tower div {
+  border: 2px dashed white;
+}
+
+/* Тень комплектующих при перетаскивании */
+#content div.ui-draggable-dragging {
+  -moz-box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.8);
+  -webkit-box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.8);
+}
+
+/* Цвета границы корректных запчастей */
+
+#part1.correct {
+  border: 2px solid green;
+}
+#part2.correct {
+  border: 2px solid green;
+}
+#part3.correct {
+  border: 2px solid green;
+}
+#part4.correct {
+  border: 2px solid green;
+}
+#part5.correct {
+  border: 2px solid green;
+}
+#part6.correct {
+  border: 2px solid green;
+}
+#part7.correct {
+  border: 2px solid green;
+}
+
+
+/* Всплывающее сообщение */
+
+#successMessage:target {
+display: block;
+}
+
+#successMessage {
+background: rgba(102, 102, 102, 0.4);
+width: 100%;
+height: 100%;
+position: fixed;
+top: 0;
+left: 0;
+display: none;
+z-index: 9999999999;
+}
+
+body{background-color: #22252D;
+font-family: 'Montserrat', sans-serif;
+font-weight: 800;
+font-size: 24px;
+line-height: 1.21;
+color:#FFFFFF;
+}
+
+table {
+  border-collapse: collapse;
+  border: 2px solid black;}
+
+p.reset{
+color:#C4C4C4;
+font-size: 36px;
+position: absolute;
+left: 50%;top: -1%;
+max-width: 100%;
+transform: translate(-50%, 0);
+
+}
+button.reset{
+  position: absolute;
+  left: 50%;
+  top: 60%;
+  transform: translate(-50%, 0);
+  width:200px;
+  font-family: 'Montserrat', sans-serif;
+  justify-content:center;
+  font-weight: 800;
+  font-size: 26px;
+  color:#000000;
+  background-color:#C4C4C4;
+  display: inline-block;
+  padding: 18px 20px;
+  max-width: 100%;
+  border-radius: 28px;
+  border: 0;
+  cursor: pointer;
+  text-align:center;
+}  
+button.btn{
+  position: absolute;
+  bottom:20px;
+  right:230px;
+  width:200px;
+	font-family: 'Montserrat', sans-serif;
+  justify-content:center;
+  font-weight: 800;
+  font-size: 24px;
+  color:#FFFFFF;
+  background-color:#F0B00C;
+  display: inline-block;
+  padding: 18px 20px;
+  max-width: 100%;
+  border-radius: 28px;
+  border: 0;
+  cursor: pointer;
+  text-align:center;
+}  
+
+
+.sistemic{
+  margin: 50px auto 0 auto;
+  position: absolute;
+   top: 6%;
+   left: 2%;
+   border: none;
+}
+.detalic
+{
+margin: 0 auto;
+position: absolute;
+right: 2%;
+top: 13%;
+width: 30%;
+height: 50%;
+border-radius: 20px;
+padding: 100px;
+background-color: rgba(11, 20, 25, 0.9);
+}
+
+
+window {
+position: absolute;
+opacity:0.9;
+top: 50%;
+left: 50%;
+width: 250px;
+height: 50px;
+border-radius: 60px;
+padding: 90px;
+transform: translate(-50%,-50%);
+background-color: #22252D;
+}
+
+div#main_text a.close_window {
+position: absolute;
+right: 10px;
+top: 4px;
+border: none;
+}
+
+.img-light:hover {
+    opacity: 0.7;
+}
+
+p{
+ font-size: 20px;
+}
+
+
+
+/*
+font-family: 'Montserrat', sans-serif;
+font-family: 'Roboto', sans-serif;
+*/
+

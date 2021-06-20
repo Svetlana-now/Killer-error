@@ -1,0 +1,49 @@
+.header-page-1{
+  position: absolute;
+  top: 75px;
+  left: 0;
+  width: 100%;
+  z-index: 5;
+  background: rgba(11, 20, 25, 0.9);
+  padding: 9px 0;
+  overflow: hidden;
+}
+
+.header-pa7e-1__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-page-1__end {
+  display: flex;
+  align-items: center;
+}
+
+.header-page-1__nav {
+  margin-right: 15px;
+}
+
+.header-page-1__ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.header-page-1__link {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  padding: 0 180px 0 37%; 
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 24px;
+  position: relative;
+}
+
+
+.header-page-1__hamburger {
+  display: none;
+  margin-right: -15px;
+}

@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Мастерская</title>
+	<meta charset="utf-8">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Roboto:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="header-page.css">
+</head>
+
+<body>
+<header class="header-page">
+  <div class="container header-page__container">
+    <div class="header-page__end">
+      <nav class="header-page__nav">
+        <ul class="header-page__ul">
+          <li class="header-page__li">
+            <a class="header-page__link" href="">
+              <span class="header-page__text">Мастерская</span>
+            </a>
+          </li>
+          <li class="header-page__li">
+            <a class="header-page__link" href="warehouse.html">
+              <span class="header-page__text">Склад</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+
+<div class="sistemic"  id="table">
+    <img src="img/PK.png">
+  <div id="tower">
+    <div class="part ui-droppable" id="motherboard" data-number="2"><img src="img/Motherboard-blue.png" class="parts__img" data-order="2" align="middle"></div>
+    <div class="part ui-droppable" id="cpu" data-number="1"><img src="img/CPU-blue.png" class="parts__img" data-order="1" align="middle"></div>
+    <div class="part ui-droppable" id="cooler" data-number="3"><img src="img/Cooler-blue.png" class="parts__img" data-order="3" align="middle"></div>
+    <div class="part ui-droppable" id="memory" data-number="4"><img src="img/memory-blue.png" class="parts__img" data-order="4" align="middle"></div>
+    <div class="part ui-droppable" id="video-card" data-number="5"><img src="img/video card-black.png" class="parts__img" data-order="5" align="middle"></div>
+    <div class="part ui-droppable" id="power-supply" data-number="6"><img src="img/Power Supply-black.png" class="parts__img" data-order="6" align="middle"></div>
+    <div class="part ui-droppable" id="hdd" data-number="7"><img src="img/HDD-blue.png" class="parts__img" data-order="7" align="middle"></div>
+  </div>
+</div>
+
+
+ <div id="content">
+  <div class="parts">
+<div class="detalic">
+  
+ 
+  <div id="part2" style="position: relative;" class="ui-draggable" data-number="2"><img src="img/Motherboard-blue.png" class="parts__img" data-order="2" align="middle"></div>
+    <div id="part1" style="position: relative;" class="ui-draggable" data-number="1"><img src="img/CPU-blue.png" class="parts__img" data-order="1" align="middle"></div>
+    <div id="part3" style="position: relative;" class="ui-draggable" data-number="3"><img src="img/Cooler-blue.png" class="parts__img" data-order="3" align="middle"></div>
+    <div id="part4" style="position: relative;" class="ui-draggable" data-number="4"><img src="img/memory-blue.png" class="parts__img" data-order="4" align="middle"></div>
+    <div id="part5" style="position: relative;" class="ui-draggable" data-number="5"><img src="img/video card-black.png" class="parts__img" data-order="5" align="middle"></div>
+    <div id="part6" style="position: relative;" class="ui-draggable" data-number="6"><img src="img/Power Supply-black.png" class="parts__img" data-order="6" align="middle"></div>
+    <div id="part7" style="position: relative;" class="ui-draggable" data-number="7"><img src="img/HDD-blue.png" class="parts__img" data-order="7" align="middle"></div>
+   
+</div></div>
+
+</div>
+
+
+
+  <div id="successMessage" style="display: none;">
+  <window>
+       <p class="reset">Play again</p>
+       <a href="#close_window" class="close_window"><button class="reset">X</button></a>
+   </window>
+ 
+  </div> 
+</div>
+
+
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+
+<script>
+$( ".parts__img" ).click(function() {
+  console.log($(this).data( "order"));
+});
+
+
+
+var correctParts = 0;
+$(init);
+
+$(".reset").click(function () {
+  correctParts = 0;
+
+  // Прячем сообщение
+  $("#successMessage").hide();
+
+  // Возвращаем запчасти на место
+  $(".ui-draggable").css({
+    left: 0,
+    top: 0
+  });
+
+  // Убираем стили корректного класса
+  $(".ui-draggable").removeClass("correct");
+
+  // Оживляем элементы
+  $(".ui-draggable").draggable("enable");
+  $(".ui-droppable").droppable("enable");
+  $(".ui-draggable").draggable("option", "revert", true);
+
+  init();
+});
+
+function init() {
+  // Делаем запчасти перетаскиваемыми
+  $(".ui-draggable").draggable({
+    containment: "#content",
+    stack: "#tower div",
+    cursor: "move",
+    revert: true
+  });
+
+  // Обозначаем цель для переноса
+  $(".ui-droppable").droppable({
+    accept: "#content div",
+    hoverClass: "hovered",
+    drop: handlePartDrop
+  });
+}
+
+// Функция проверки "дропа"
+function handlePartDrop(event, ui) {
+  var slotNumber = $(this).data("number");
+  var partNumber = ui.draggable.data("number");
+
+  // If the part was dropped to the correct slot,
+  // change the part colour, position it directly
+  // on top of the slot, and prevent it being dragged
+  // again
+
+  if (slotNumber == partNumber) {
+    ui.draggable.addClass("correct");
+    ui.draggable.draggable("disable");
+    $(this).droppable("disable");
+    ui.draggable.position({ of: $(this), my: "left top", at: "left top" });
+    ui.draggable.draggable("option", "revert", false);
+    correctParts++;
+  }
+
+  // If all the parts have been placed correctly then display a message
+  // and reset the parts for another go
+
+  if (correctParts == 7) {
+    $("#successMessage").show();
+  }
+}
+</script>
+
+</body>
+</html>
